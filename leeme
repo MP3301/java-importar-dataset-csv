@@ -1,0 +1,60 @@
+1 usar xampp mysql en puerto 3306
+
+2 importar db "quizdb" 
+
+ instalar spring tools suite...
+ 
+ instalar java...
+ 
+ https://spring.io/tools#suite-three
+ 
+ descargar proyecto en zip y descomprimir en escritorio ir a https://github.com/mperez30
+ 
+ nombre proyecto "importar-dataset-prueba-tecnica"
+ 
+ abrir sts spring tools suite
+ 
+ ir a file 
+ 
+ > import
+ >maven
+ > existing maven projects
+ > seleccionar directorio de la carpeta de la app descargada de git o obtener via git clone...
+ >aceptar
+ > esperar importar, hacer click derecho en  maven > update project > hacer click ok
+ 
+ posicionarse en src main java, hacer click derecho en la clase SpringBootImportCsvFileAppApplication
+ 
+ run as spring boot application
+ 
+ url de app
+ 
+en web  http://localhost:8081/  hacer click en select file, elegir el csv dataset proporcionado para la prueba tecnica... subir 
+
+ir a php my admin y importar quiz sql que es la db a usar
+
+
+ir a phpmyadmin y chequear en quizdb que exista la tabla data_set_modelo hacer select * from data_set_modelo en un editor como dbeaver o heidisql
+
+las credenciales son: root y sin password (root usuario por defecto mysql xampp
+
+se puede ver que se realizo el insert correctamente
+
+
+url de api por postman
+
+http://localhost:8081/api/csv/upload
+
+ir a body seleccionar form data  en field key escribir file  sale un dropdown con seleccion que dice file y elegir el csv, colocar la peticion como post y darle enter
+
+, se obtendra esta respuesta
+
+{
+    "message": "Uploaded the file successfully: 04_sample_vmt_county.csv",
+    "fileDownloadUri": "http://localhost:8081/api/csv/download/04_sample_vmt_county.csv"
+}
+
+
+se puede chequear en php my admin o en dbeaver o heidisql o toad que la db quiz y la tabla data_set_modelo esta populada
+ 
+ 
